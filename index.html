@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Sistem Penunjang Keputusan Kader Posyandu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-heartbeat text-3xl"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold">SPK Kader Posyandu</h1>
+                        <p class="text-blue-100 text-sm">Sistem Penunjang Keputusan</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#dashboard" class="hover:text-blue-200 transition-colors">Dashboard</a>
+                    <a href="#analisis" class="hover:text-blue-200 transition-colors">Analisis</a>
+                    <a href="#laporan" class="hover:text-blue-200 transition-colors">Laporan</a>
+                </nav>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                Aplikasi Sistem Penunjang Keputusan Kader Posyandu
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                SPK untuk melihat prioritas sasaran yang perlu tindak lanjut dalam pelayanan kesehatan masyarakat
+            </p>
+            <button id="startAnalysis" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+                <i class="fas fa-chart-line mr-2"></i>
+                Mulai Analisis
+            </button>
+        </div>
+    </section>
+
+    <!-- Dashboard Cards -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Dashboard Prioritas</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-red-100 p-3 rounded-full">
+                            <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-red-600 bg-red-100 px-2 py-1 rounded">Tinggi</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Prioritas Tinggi</h4>
+                    <p class="text-3xl font-bold text-red-600 mb-2">12</p>
+                    <p class="text-gray-600 text-sm">Sasaran memerlukan tindakan segera</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full">
+                            <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-yellow-600 bg-yellow-100 px-2 py-1 rounded">Sedang</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Prioritas Sedang</h4>
+                    <p class="text-3xl font-bold text-yellow-600 mb-2">25</p>
+                    <p class="text-gray-600 text-sm">Sasaran perlu pemantauan rutin</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-green-100 p-3 rounded-full">
+                            <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Rendah</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Prioritas Rendah</h4>
+                    <p class="text-3xl font-bold text-green-600 mb-2">48</p>
+                    <p class="text-gray-600 text-sm">Sasaran dalam kondisi baik</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-users text-blue-600 text-xl"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">Total</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Total Sasaran</h4>
+                    <p class="text-3xl font-bold text-blue-600 mb-2">85</p>
+                    <p class="text-gray-600 text-sm">Jumlah keseluruhan sasaran</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysisSection" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Analisis Prioritas Sasaran</h3>
+            
+            <!-- Criteria Input -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Kriteria Penilaian</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Status Gizi</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Pilih Status Gizi</option>
+                                <option value="kurang">Gizi Kurang</option>
+                                <option value="baik">Gizi Baik</option>
+                                <option value="lebih">Gizi Lebih</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Usia (Bulan)</label>
+                            <input type="number" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan usia dalam bulan">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Berat Badan (kg)</label>
+                            <input type="number" step="0.1" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan berat badan">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tinggi Badan (cm)</label>
+                            <input type="number" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan tinggi badan">
+                        </div>
+                    </div>
+                    <button id="calculatePriority" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Hitung Prioritas
+                    </button>
+                </div>
+
+                <!-- Results Table -->
+                <div id="resultsTable" class="hidden">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Hasil Analisis Prioritas</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full bg-white rounded-lg shadow-md">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Usia</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status Gizi</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Skor</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prioritas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">SPK Kader Posyandu</h5>
+                    <p class="text-gray-300">Sistem Penunjang Keputusan untuk membantu kader posyandu dalam menentukan prioritas sasaran yang memerlukan tindak lanjut.</p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Fitur</h5>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>Analisis Prioritas</li>
+                        <li>Dashboard Monitoring</li>
+                        <li>Laporan Komprehensif</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Kontak</h5>
+                    <div class="text-gray-300 space-y-2">
+                        <p><i class="fas fa-envelope mr-2"></i> info@spkposyandu.id</p>
+                        <p><i class="fas fa-phone mr-2"></i> (021) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Jakarta, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 SPK Kader Posyandu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
